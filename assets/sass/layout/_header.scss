@@ -1264,13 +1264,18 @@
 
 		.mobail-menu button {
 			background-color: $theme-primary-color;
-			width: 40px;
-			height: 35px;
+			width: 44px;
+			height: 44px;
+			min-width: 44px;
+			min-height: 44px;
 			border: 0;
-			padding: 5px 10px;
+			padding: 10px;
 			outline: 0;
 			position: relative;
 			z-index: 20;
+			display: inline-flex;
+			align-items: center;
+			justify-content: center;
 
 			&:focus {
 				outline: none;
@@ -1646,12 +1651,22 @@
 		}
 
 		.icon {
+			display: inline-flex;
+			align-items: center;
+			justify-content: center;
+			flex-shrink: 0;
 			border-radius: 58px;
 			background: #42C652;
 			width: 40px;
 			height: 40px;
-			line-height: 40px;
-			text-align: center;
+
+			img {
+				width: 22px;
+				height: 22px;
+				max-width: none;
+				object-fit: contain;
+				display: block;
+			}
 		}
 
 		.text {

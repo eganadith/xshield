@@ -1,0 +1,522 @@
+/* XShield global responsive system
+   Breakpoints: 480px | 768px | 1024px | 1025px+
+*/
+
+$bp-phone: 480px;
+$bp-tablet: 768px;
+$bp-laptop: 1024px;
+$bp-desktop: 1025px;
+$tap-target-min: 44px;
+
+/* ---- Base layout & overflow ---- */
+html {
+    font-size: clamp(15px, 0.25vw + 14px, 16px);
+    -webkit-text-size-adjust: 100%;
+}
+
+body {
+    font-size: clamp(0.9375rem, 0.15vw + 0.875rem, 1.0625rem);
+    overflow-x: clip;
+}
+
+.page-wrapper {
+    overflow-x: clip;
+    max-width: 100%;
+}
+
+img,
+svg {
+    max-width: 100%;
+    height: auto;
+}
+
+img {
+    display: block;
+}
+
+/* Keep badge / button icons centered inside fixed circles */
+.call .icon img,
+.wpo-cta-box .call i img,
+.header-right .call .icon img {
+    max-width: none;
+}
+
+/* Keep full-bleed hero/background videos sized by their container */
+video:not(.video-hero__bg) {
+    max-width: 100%;
+    height: auto;
+}
+
+table {
+    width: 100%;
+    max-width: 100%;
+}
+
+.table-responsive,
+.wpo-cart-style,
+.wpo-checkout-area,
+.blog-single-section .entry-content {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+a,
+button,
+input,
+select,
+textarea,
+.theme-btn,
+.theme-btn-s2,
+.theme-btn-s3,
+.navbar-toggler,
+.xshield-fab {
+    touch-action: manipulation;
+}
+
+/* Long text / URLs */
+p,
+li,
+.contact-info span,
+.office-info-text p,
+.xshield-inquiry__desc {
+    overflow-wrap: anywhere;
+    word-break: break-word;
+}
+
+.box-style {
+    max-width: min(1691px, calc(100% - 30px));
+}
+
+.container,
+.container-fluid {
+    max-width: 100%;
+}
+
+/* ---- Fluid typography ---- */
+h1,
+.h1 {
+    font-size: clamp(1.75rem, 4vw + 1rem, 3rem);
+    line-height: 1.15;
+}
+
+h2,
+.h2 {
+    font-size: clamp(1.5rem, 2.5vw + 0.85rem, 2.5rem);
+    line-height: 1.2;
+}
+
+h3,
+.h3 {
+    font-size: clamp(1.25rem, 2vw + 0.75rem, 2rem);
+    line-height: 1.25;
+}
+
+h4,
+.h4 {
+    font-size: clamp(1.0625rem, 1.5vw + 0.65rem, 1.5rem);
+}
+
+h5,
+.h5,
+h6,
+.h6 {
+    font-size: clamp(1rem, 1vw + 0.6rem, 1.25rem);
+}
+
+.breadcumb-area .breadcumb-wrap h3 {
+    font-size: clamp(1.75rem, 6vw + 0.5rem, 5rem);
+    line-height: 1.1;
+}
+
+.wpo-section-title h2,
+.wpo-section-title-s2 h2 {
+    font-size: clamp(1.625rem, 3vw + 0.75rem, 2.5rem);
+}
+
+/* ---- Responsive embeds (maps, iframes, video) ---- */
+.responsive-embed,
+.embed-responsive,
+.map,
+.video-wrap,
+.service-single-wrap .video-img,
+.xshield-inquiry__media {
+    position: relative;
+    width: 100%;
+    max-width: 100%;
+}
+
+.responsive-embed,
+.embed-responsive,
+.map {
+    aspect-ratio: 16 / 10;
+
+    iframe,
+    object,
+    embed {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        border: 0;
+    }
+}
+
+/* Hero video must stay full-viewport (do not constrain with aspect-ratio) */
+.video-hero {
+    min-height: 100vh;
+    min-height: 100svh;
+
+    .video-area {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        aspect-ratio: unset;
+        max-height: none;
+        overflow: hidden;
+    }
+
+    .video-hero__bg,
+    .video-area video {
+        width: 100%;
+        height: 100%;
+        min-height: 100vh;
+        min-height: 100svh;
+        max-width: none;
+        object-fit: cover;
+    }
+}
+
+/* ---- Forms ---- */
+form .row,
+.xshield-contact-form .row,
+.contact-right form .row,
+.checkout-area form .row,
+.appointment-form .row {
+    @media (max-width: $bp-tablet) {
+        --bs-gutter-y: 1rem;
+    }
+}
+
+form .form-control,
+form input,
+form select,
+form textarea,
+.xshield-contact-form input,
+.xshield-contact-form textarea,
+.xshield-contact-form select {
+    width: 100%;
+    max-width: 100%;
+    min-height: $tap-target-min;
+}
+
+form .col-md-6,
+form .col-lg-6,
+form .col-sm-6 {
+    @media (max-width: $bp-tablet) {
+        flex: 0 0 100%;
+        max-width: 100%;
+    }
+}
+
+/* ---- Tap targets (mobile) ---- */
+@media (max-width: $bp-tablet) {
+    .theme-btn,
+    .theme-btn-s2,
+    .theme-btn-s3,
+    .navbar-toggler.open-btn,
+    .mobail-menu button,
+    .xshield-inquiry__cta .theme-btn-s2,
+    .xshield-inquiry__cta .theme-btn-s3,
+    .wpo-service-item .arrow,
+    .topbar .social-media a,
+    .footer-topbar .theme-btn-s2 {
+        min-height: $tap-target-min;
+        min-width: $tap-target-min;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .mobail-menu button {
+        width: $tap-target-min;
+        height: $tap-target-min;
+        padding: 10px;
+    }
+
+    .wpo-service-item .arrow {
+        width: $tap-target-min;
+        height: $tap-target-min;
+    }
+}
+
+/* ---- Navigation (hamburger exists in template; enhance for small screens) ---- */
+@media (max-width: $bp-tablet) {
+    .topbar .contact-info {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 0.35rem;
+
+        li {
+            display: block;
+            width: 100%;
+            text-align: center;
+            padding-left: 0 !important;
+
+            + li {
+                padding-left: 0;
+            }
+        }
+    }
+
+    .wpo-site-header .navigation .row {
+        flex-wrap: wrap;
+        gap: 0.5rem;
+    }
+}
+
+/* ---- Service pages ---- */
+.wpo-service-section.style-3 {
+    .wpo-service-wrap .wpo-service-item .wpo-service-text {
+        min-height: 0;
+
+        h2 {
+            min-height: 0;
+            font-size: clamp(1.125rem, 2vw + 0.75rem, 1.375rem);
+        }
+    }
+}
+
+.service-single-wrap,
+.contact-left,
+.contact-right {
+    max-width: 100%;
+}
+
+.contact-right {
+    max-width: 100%;
+}
+
+/* ---- Inquiry pages ---- */
+.xshield-inquiry {
+    &__layout {
+        @media (max-width: $bp-laptop) {
+            grid-template-columns: 1fr;
+        }
+    }
+
+    &__title {
+        font-size: clamp(1.5rem, 4vw + 0.75rem, 2.5rem);
+    }
+
+    &__actions {
+        @media (max-width: $bp-tablet) {
+            flex-direction: column;
+            align-items: stretch;
+
+            .theme-btn-s2,
+            .theme-btn-s3 {
+                width: 100%;
+            }
+        }
+    }
+
+    &__sticky-cta {
+        @media (max-width: $bp-tablet) {
+            padding-left: max(1rem, env(safe-area-inset-left));
+            padding-right: max(1rem, env(safe-area-inset-right));
+            padding-bottom: max(0.75rem, env(safe-area-inset-bottom));
+        }
+    }
+}
+
+/* ---- Section spacing by breakpoint ---- */
+.section-padding {
+    @media (max-width: $bp-laptop) {
+        padding-top: clamp(3rem, 8vw, 5rem);
+        padding-bottom: clamp(3rem, 8vw, 5rem);
+    }
+
+    @media (max-width: $bp-tablet) {
+        padding-top: clamp(2.5rem, 7vw, 4rem);
+        padding-bottom: clamp(2.5rem, 7vw, 4rem);
+    }
+
+    @media (max-width: $bp-phone) {
+        padding-top: clamp(2rem, 6vw, 3rem);
+        padding-bottom: clamp(2rem, 6vw, 3rem);
+    }
+}
+
+/* ---- Grid / flex reflow helpers ---- */
+.row {
+    @media (max-width: $bp-tablet) {
+        row-gap: 1.5rem;
+    }
+}
+
+.wpo-work-section .wpo-work-wrap .row {
+    @media (max-width: $bp-tablet) {
+        row-gap: 0.35rem;
+        --bs-gutter-y: 0.35rem;
+    }
+}
+
+.transforming-section .transforming-btns,
+.wpo-cta-section .btns,
+.footer-topbar .footer-cta-card {
+    @media (max-width: $bp-tablet) {
+        flex-direction: column;
+        align-items: stretch;
+
+        .theme-btn,
+        .theme-btn-s2,
+        .theme-btn-s3 {
+            width: 100%;
+            text-align: center;
+        }
+    }
+}
+
+.footer-cta-card {
+    @media (max-width: $bp-tablet) {
+        flex-direction: column;
+        text-align: center;
+    }
+}
+
+/* ---- Small phones ---- */
+@media (max-width: $bp-phone) {
+    .box-style {
+        max-width: calc(100% - 16px);
+        margin-left: 8px;
+        margin-right: 8px;
+    }
+
+    .breadcumb-area {
+        min-height: clamp(14rem, 55vw, 18rem);
+    }
+
+    .wpo-transforming-left-img .transforming-slider-button {
+        width: 3.5rem;
+        height: 3.5rem;
+        font-size: 0.875rem;
+    }
+}
+
+/* ---- Tablet landscape / small laptop ---- */
+@media (max-width: $bp-laptop) {
+    .wpo-transforming-right-side {
+        padding-left: 0;
+        margin-top: 2.5rem;
+    }
+
+    .wpo-service-section.style-3 .wpo-service-wrap .wpo-service-slide-item .row {
+        row-gap: 1.5rem;
+    }
+}
+
+/* ---- Desktop tuning ---- */
+@media (min-width: $bp-desktop) {
+    .container {
+        max-width: min(1440px, 100%);
+    }
+}
+
+/* Footer text — keep contact lines intact on mobile */
+.footer-common,
+.footer-section-s1 {
+    .item ul li,
+    .footer-lower p,
+    .footer-lower .copyright {
+        overflow-wrap: normal;
+        word-break: normal;
+    }
+}
+
+/* ---- Mobile UX polish ---- */
+@media (max-width: $bp-tablet) {
+    .wpo-site-header {
+        .header-right .call {
+            display: none;
+        }
+
+        .navigation .row {
+            align-items: center;
+            min-height: 56px;
+        }
+
+        .mobail-menu button {
+            border-radius: 12px;
+            flex-direction: column;
+            gap: 5px;
+            padding: 0;
+
+            .icon-bar {
+                background-color: $white;
+                width: 20px;
+                height: 2px;
+                display: block;
+                border-radius: 1px;
+                margin: 0 !important;
+            }
+        }
+
+        .navbar-header {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+    }
+
+    .video-hero .content-area {
+        padding-left: max(1.25rem, env(safe-area-inset-left));
+        padding-right: max(1.25rem, env(safe-area-inset-right));
+        padding-bottom: calc(5rem + env(safe-area-inset-bottom, 0px));
+
+        .btns {
+            gap: 0.75rem;
+
+            .theme-btn,
+            .theme-btn-s2,
+            .theme-btn-s3 {
+                min-width: min(100%, 280px);
+            }
+        }
+    }
+
+    .xshield-cta-band {
+        padding-bottom: calc(#{$apple-space-48} + env(safe-area-inset-bottom, 0px));
+
+        &__inner {
+            padding-left: max(1rem, env(safe-area-inset-left));
+            padding-right: max(1rem, env(safe-area-inset-right));
+        }
+    }
+
+    .wpo-choose-right-side,
+    .about-left-side-wrap,
+    .wpo-section-title-s2,
+    .wpo-section-title {
+        padding-right: max(0px, calc(env(safe-area-inset-right) + 8px));
+    }
+
+    .footer-common,
+    .footer-section-s1 {
+        .footer-wrap .container,
+        .footer-wrap > .container {
+            padding-left: max(1rem, env(safe-area-inset-left));
+            padding-right: max(1rem, env(safe-area-inset-right));
+        }
+    }
+}
+
+@media (max-width: $bp-phone) {
+    .breadcumb-area {
+        .breadcumb-wrap {
+            padding-left: max(1rem, env(safe-area-inset-left));
+            padding-right: max(1rem, env(safe-area-inset-right));
+        }
+    }
+}

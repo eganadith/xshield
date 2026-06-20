@@ -164,4 +164,11 @@
         background: #fef2f2;
         color: #991b1b;
     }
+
+    .row > [class*="col-"] {
+        @media (max-width: 768px) {
+            flex: 0 0 100%;
+            max-width: 100%;
+        }
+    }
 }

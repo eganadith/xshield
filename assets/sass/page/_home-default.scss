@@ -85,8 +85,8 @@
             }
 
             @media (max-width:575px) {
-                font-size: 25px;
-                line-height: 35px;
+                font-size: 21px;
+                line-height: 1.25;
             }
         }
     }
@@ -761,7 +761,7 @@
     padding-bottom: 180px;
 
     @media(max-width:991px) {
-        padding-bottom: 120px;
+        padding-bottom: 48px;
     }
 
     .wpo-work-wrap {
@@ -790,12 +790,20 @@
 
         .wpo-work-icon {
             min-height: 124px;
+
+            @media(max-width:767px) {
+                min-height: 52px;
+            }
         }
 
         .wpo-work-text {
             z-index: 1;
             margin-top: 40px;
             position: relative;
+
+            @media(max-width:767px) {
+                margin-top: 4px;
+            }
 
             span {
                 font-family: $heading-font;
@@ -1966,7 +1974,7 @@
             -o-appearance: none;
             appearance: none;
             -moz-appearance: none;
-            background: $white url(../images/select-icon.png) no-repeat calc(100% - 15px) center;
+            background: $white url(../images/select-icon.webp) no-repeat calc(100% - 15px) center;
             position: relative;
         }
 

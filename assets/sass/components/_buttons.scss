@@ -35,13 +35,13 @@
 
 .theme-btn {
 	background: $theme-primary-color-s2;
-	color: $black;
+	color: $white;
 
 	&:hover,
 	&:focus,
 	&:active {
 		background: darken($theme-primary-color-s2, 6%);
-		color: $black;
+		color: $white;
 	}
 }
 
@@ -135,22 +135,30 @@
 }
 
 // XShield floating action buttons
+:root {
+	--xshield-fab-size: 48px;
+	--xshield-fab-gap: 12px;
+	--xshield-fab-edge: 16px;
+	--xshield-fab-base: max(var(--xshield-fab-edge), env(safe-area-inset-bottom, 0px));
+	--xshield-fab-right: max(var(--xshield-fab-edge), env(safe-area-inset-right, 0px));
+}
+
 .xshield-fab {
 	position: fixed;
 	z-index: 9999;
-	width: 44px;
-	height: 44px;
+	width: var(--xshield-fab-size);
+	height: var(--xshield-fab-size);
 	border-radius: 50%;
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	box-shadow: 0 4px 12px rgba(0, 0, 0, 0.18);
+	box-shadow: 0 4px 14px rgba(0, 0, 0, 0.2);
 	transition: transform 0.2s ease, box-shadow 0.2s ease;
 	text-decoration: none;
 
 	&:hover {
 		transform: scale(1.06);
-		box-shadow: 0 6px 16px rgba(0, 0, 0, 0.22);
+		box-shadow: 0 6px 18px rgba(0, 0, 0, 0.24);
 	}
 
 	svg {
@@ -160,18 +168,26 @@
 	}
 
 	&--whatsapp {
-		bottom: 24px;
-		right: 24px;
+		bottom: var(--xshield-fab-base);
+		right: var(--xshield-fab-right);
 		background: #25D366;
 	}
 
 	&--call {
-		bottom: 80px;
-		right: 24px;
+		bottom: calc(var(--xshield-fab-base) + var(--xshield-fab-size) + var(--xshield-fab-gap));
+		right: var(--xshield-fab-right);
 		background: $theme-primary-color;
 	}
 
 	@media (min-width: 992px) {
+		width: 44px;
+		height: 44px;
+
+		&--whatsapp {
+			bottom: 24px;
+			right: 24px;
+		}
+
 		&--call {
 			display: none;
 		}

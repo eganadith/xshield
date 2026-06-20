@@ -24,7 +24,9 @@ for page in "${PAGES[@]}"; do
 done
 
 cp -R "$ROOT/inquiry/"*.html "$STAGING/inquiry/"
+cp "$ROOT/mail-config.php" "$STAGING/"
 cp "$ROOT/mail-contact.php" "$STAGING/"
+cp "$ROOT/mail-newsletter.php" "$STAGING/"
 cp "$ROOT/deploy/.htaccess" "$STAGING/"
 cp "$ROOT/deploy/README-DEPLOY.txt" "$STAGING/"
 

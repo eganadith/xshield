@@ -56,6 +56,8 @@ a:hover {
 
 img {
     max-width: 100%;
+    height: auto;
+    display: block;
 }
 
 
@@ -66,12 +68,18 @@ img {
 }
 
 .box-style {
-    max-width: 1691px;
+    max-width: min(1691px, calc(100% - 30px));
     margin: 0 auto;
 
     @media(max-width:1800px) {
         margin-left: 15px;
         margin-right: 15px;
+    }
+
+    @media(max-width:480px) {
+        max-width: calc(100% - 16px);
+        margin-left: 8px;
+        margin-right: 8px;
     }
 }
 
@@ -210,15 +218,20 @@ img {
     text-align: center;
     display: none;
     position: fixed;
-    z-index: 999;
+    z-index: 9998;
     right: 15px;
     bottom: 15px;
     @include transition-time(0.2s);
 
     @include media-query(991px) {
-        width: 35px;
-        height: 35px;
-        line-height: 35px;
+        width: var(--xshield-fab-size, 48px);
+        height: var(--xshield-fab-size, 48px);
+        line-height: var(--xshield-fab-size, 48px);
+        right: var(--xshield-fab-right, 16px);
+        bottom: calc(
+            var(--xshield-fab-base, 16px) +
+            (var(--xshield-fab-size, 48px) + var(--xshield-fab-gap, 12px)) * 2
+        );
     }
 
     &:hover {

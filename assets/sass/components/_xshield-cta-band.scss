@@ -34,5 +34,18 @@
         align-items: center;
         justify-content: center;
         gap: $apple-space-16;
+
+        @media (max-width: 767px) {
+            flex-direction: column;
+            align-items: center;
+            width: 100%;
+
+            .theme-btn-s2,
+            .theme-btn-s3 {
+                width: min(100%, 280px);
+                margin: 0 !important;
+                text-align: center;
+            }
+        }
     }
 }

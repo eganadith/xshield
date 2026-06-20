@@ -6,11 +6,37 @@
         text-align: center;
         margin-bottom: $apple-space-48;
 
-        .xshield-3ps__highlight {
-            color: $theme-primary-color-s2;
+        span {
+            justify-content: center;
         }
 
-        p {
+        .xshield-3ps__brand {
+            margin: $apple-space-12 0 0;
+            font-size: $apple-type-17;
+            font-weight: 500;
+            line-height: 1.35;
+            color: $apple-text-secondary;
+        }
+
+        .xshield-3ps__headline {
+            margin: $apple-space-8 0 0;
+            font-size: clamp(3.5rem, 12vw, 5rem);
+            font-weight: 700;
+            line-height: 1;
+            letter-spacing: -0.04em;
+            color: $theme-primary-color-s2;
+            text-align: center;
+        }
+
+        .xshield-3ps__intro {
+            max-width: 520px;
+            margin: $apple-space-16 auto 0;
+            font-size: $apple-type-17;
+            line-height: $apple-lh-body;
+            color: $apple-text-secondary;
+        }
+
+        p:not(.xshield-3ps__brand):not(.xshield-3ps__intro) {
             max-width: 520px;
             margin: $apple-space-16 auto 0;
             font-size: $apple-type-17;
@@ -216,6 +242,19 @@
     @media (max-width: 767px) {
         .wpo-section-title-s2 {
             margin-bottom: $apple-space-32;
+
+            .xshield-3ps__headline {
+                font-size: clamp(3.25rem, 16vw, 4.5rem);
+            }
+
+            .xshield-3ps__brand {
+                font-size: $apple-type-14;
+            }
+
+            .xshield-3ps__intro {
+                font-size: $apple-type-14;
+                line-height: 1.5;
+            }
         }
 
         &__index {

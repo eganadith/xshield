@@ -7,11 +7,35 @@
     }
 
     var soundToggle = document.querySelector('.video-hero__sound-toggle');
+    var CACHE_BUST = '20260620';
+    var isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) ||
+        (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
+    var isMobile = window.matchMedia('(max-width: 767px)').matches;
 
     video.muted = true;
     video.defaultMuted = true;
     video.setAttribute('playsinline', '');
     video.setAttribute('webkit-playsinline', '');
+    video.setAttribute('x-webkit-airplay', 'allow');
+
+    function configureSources() {
+        var sources = video.querySelectorAll('source');
+        var i;
+
+        for (i = 0; i < sources.length; i += 1) {
+            if (isIOS || isMobile) {
+                if (sources[i].type === 'video/mp4') {
+                    sources[i].src = 'assets/images/video-mobile.mp4?v=' + CACHE_BUST;
+                }
+
+                if (sources[i].type === 'video/webm') {
+                    sources[i].remove();
+                }
+            }
+        }
+
+        video.load();
+    }
 
     function playVideo() {
         var promise = video.play();
@@ -47,6 +71,8 @@
         playVideo();
     }
 
+    configureSources();
+
     if (soundToggle) {
         soundToggle.addEventListener('click', toggleSound);
     }
@@ -69,4 +95,7 @@
             reloadVideo();
         }
     });
+
+    document.addEventListener('touchstart', playVideo, { once: true, passive: true });
+    document.addEventListener('click', playVideo, { once: true });
 })();
