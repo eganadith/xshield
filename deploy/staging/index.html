@@ -112,9 +112,9 @@
                 <!-- start of static-hero-->
                 <section class="video-hero">
                     <div class="video-area wow">
-                        <video class="video-hero__bg" autoplay loop muted playsinline webkit-playsinline preload="auto" poster="">
-                            <source src="assets/images/0619.mp4?v=20260619" type="video/mp4">
-                            <source src="assets/images/0619.webm?v=20260619" type="video/webm">
+                        <video class="video-hero__bg" autoplay loop muted playsinline webkit-playsinline x-webkit-airplay="allow" preload="auto" poster="">
+                            <source src="assets/images/video.webm?v=20260620" type="video/webm">
+                            <source src="assets/images/video.mp4?v=20260620" type="video/mp4">
                             Your browser does not support the video.
                         </video>
                     </div>
@@ -773,15 +773,18 @@
                                     <h2 class="title">Newsletter</h2>
                                     <div class="newsletter">
                                         <form class="form-fild xshield-newsletter-form" action="mail-newsletter.php" method="post" novalidate>
-                                            <input class="fild" type="email" name="email" placeholder="Enter your email address" required autocomplete="email">
-                                            <button type="submit" aria-label="Subscribe to newsletter">
-                                                <img src="assets/images/air-plane.svg" alt="">
-                                            </button>
+                                            <div class="xshield-newsletter-row">
+                                                <input class="fild" type="email" name="email" placeholder="Email address" required autocomplete="email">
+                                                <button type="submit" class="xshield-newsletter-submit" aria-label="Subscribe to newsletter">
+                                                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M3.5 8H11M11 8L8 5M11 8L8 11" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                                                </button>
+                                            </div>
                                             <div class="terms">
                                                 <input type="checkbox" id="newsletter-terms" name="terms" value="1" class="checkbox-input" required>
                                                 <label for="newsletter-terms" class="checkbox-label">
-                                                    <span class="custom-checkbox"></span>I agree to all your terms
-                                                    and policies</label>
+                                                    <span class="custom-checkbox" aria-hidden="true"></span>
+                                                    <span class="checkbox-label__text">I agree to the terms and privacy policy</span>
+                                                </label>
                                             </div>
                                             <p class="xshield-form-notice" role="status" aria-live="polite"></p>
                                         </form>

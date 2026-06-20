@@ -1,4 +1,6 @@
 #!/usr/bin/env bash
+# Optional: build + create xshield-cpanel-deploy.zip for manual File Manager upload.
+# For Git deploy, use ./build.sh then push (see deploy/README-DEPLOY.txt).
 set -euo pipefail
 
 ROOT="$(cd "$(dirname "$0")" && pwd)"
@@ -6,12 +8,7 @@ STAGING="$ROOT/deploy/staging"
 ZIP_NAME="xshield-cpanel-deploy.zip"
 ZIP_PATH="$ROOT/$ZIP_NAME"
 
-echo "→ Compiling SCSS..."
-cd "$ROOT"
-npx sass assets/sass/style.scss assets/sass/style.css --style=compressed
-
-echo "→ Generating inquiry pages..."
-python3 "$ROOT/build-inquiry-pages.py"
+"$ROOT/build.sh"
 
 echo "→ Preparing staging folder..."
 rm -rf "$STAGING"
@@ -48,4 +45,4 @@ rm -f "$ZIP_PATH"
 
 SIZE="$(du -h "$ZIP_PATH" | cut -f1)"
 echo "✓ Done: $ZIP_PATH ($SIZE)"
-echo "  Upload to GoDaddy cPanel → public_html → Extract"
+echo "  Optional manual upload — Git deploy: ./build.sh && git push"

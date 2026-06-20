@@ -2,5 +2,4 @@
 deployment:
   tasks:
     - export DEPLOYPATH=/home/iq5yfetciw4z/public_html/
-    - /bin/cp -R * $DEPLOYPATH
-
+    - /bin/bash ./scripts/cpanel-sync.sh

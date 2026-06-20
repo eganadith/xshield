@@ -1,38 +1,47 @@
-XShield Pest Control — GoDaddy cPanel Deployment
-================================================
+XShield Pest Control — Deployment (Git + cPanel)
+=================================================
 
-1. Log in to GoDaddy → Hosting → cPanel → File Manager
-2. Open public_html
-3. Back up any existing site (optional)
-4. Upload xshield-cpanel-deploy.zip
-5. Right-click the zip → Extract
-6. Move all files from the extracted folder into public_html
-   (index.html must sit directly in public_html, not in a subfolder)
+Recommended workflow: GitHub → cPanel Git Version Control
 
-Files included:
+LOCAL (before every push)
+-------------------------
+1. Run the build:
+     ./build.sh
+
+2. Commit built files (especially assets/sass/style.css and inquiry/*.html):
+     git add -A
+     git commit -m "Your message"
+     git push origin main
+
+CPANEL
+------
+1. cPanel → Git Version Control
+2. Clone or connect: https://github.com/eganadith/xshield.git
+3. Repository path: e.g. /home/iq5yfetciw4z/repositories/xshield
+4. After push, click Pull or Deploy HEAD Commit
+5. .cpanel.yml runs scripts/cpanel-sync.sh → copies site files to public_html
+
+What gets deployed to public_html
+---------------------------------
   - index.html, about.html, service.html, contact.html
-  - inquiry/ (12 service inquiry pages with WhatsApp prefill)
+  - inquiry/ (12 service pages)
   - mail-config.php, mail-contact.php, mail-newsletter.php
-  - assets/ (images, CSS, JS, fonts, video)
-  - .htaccess (caching + clean /inquiry/slug URLs)
+  - assets/ (compiled CSS, JS, images — no .scss sources)
+  - .htaccess (from deploy/.htaccess)
 
-Email setup (required for forms to work)
-----------------------------------------
-1. In cPanel → Email Accounts, create:
-   contact@xshield-services.com
-2. Upload all PHP mail files to public_html (same folder as index.html).
-3. Forms send to contact@xshield-services.com:
-   - Contact form on contact.html
-   - Newsletter signup in the footer on every live page
+Email (forms)
+-------------
+Create contact@xshield-services.com in cPanel → Email Accounts.
 
-After upload, test:
+Test after deploy:
   https://xshield-services.com/
   https://xshield-services.com/contact.html
-  Submit the contact form and subscribe via the footer newsletter.
-  Check contact@xshield-services.com (and spam/junk).
 
-If email does not arrive:
-  - Confirm the mailbox exists in cPanel
-  - Confirm PHP mail files are in public_html (not inside a subfolder)
-  - Check cPanel → Track Delivery or Email Deliverability
-  - Try sending a test from webmail to the same address
+Optional: manual zip upload
+---------------------------
+  ./build-deploy.sh
+  Upload xshield-cpanel-deploy.zip via File Manager (legacy method).
+
+If DEPLOYPATH changes
+---------------------
+Edit .cpanel.yml — update DEPLOYPATH to your account's public_html path.
