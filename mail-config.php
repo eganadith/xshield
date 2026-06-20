@@ -5,37 +5,6 @@ define('XSHIELD_MAIL_FROM', 'contact@xshield-services.com');
 define('XSHIELD_MAIL_FROM_NAME', 'XShield Website');
 define('XSHIELD_SITE_NAME', 'xshield-services.com');
 
-// #region agent log
-function xshield_debug_log($location, $message, $data = [], $hypothesisId = 'B')
-{
-    $entry = [
-        'sessionId' => 'ca5b13',
-        'runId' => 'mail-handler',
-        'hypothesisId' => $hypothesisId,
-        'location' => $location,
-        'message' => $message,
-        'data' => $data,
-        'timestamp' => (int) round(microtime(true) * 1000),
-    ];
-
-    $paths = [
-        __DIR__ . '/.cursor/debug-ca5b13.log',
-        sys_get_temp_dir() . '/xshield-debug-ca5b13.log',
-    ];
-
-    foreach ($paths as $path) {
-        $dir = dirname($path);
-        if (!is_dir($dir) && !@mkdir($dir, 0755, true)) {
-            continue;
-        }
-
-        if (@file_put_contents($path, json_encode($entry) . PHP_EOL, FILE_APPEND | LOCK_EX) !== false) {
-            break;
-        }
-    }
-}
-// #endregion
-
 function xshield_json_response($success, $message, $status = 200)
 {
     http_response_code($status);
@@ -94,22 +63,7 @@ function xshield_send_mail($subject, $body, $replyToEmail = '', $replyToName = '
 
     $headers[] = 'X-Mailer: PHP/' . phpversion();
 
-    $sent = @mail(XSHIELD_MAIL_TO, $subject, $body, implode("\r\n", $headers));
-
-    // #region agent log
-    xshield_debug_log(
-        'mail-config.php:xshield_send_mail',
-        'mail() result',
-        [
-            'sent' => (bool) $sent,
-            'to' => XSHIELD_MAIL_TO,
-            'subject' => $subject,
-        ],
-        'B'
-    );
-    // #endregion
-
-    return $sent;
+    return mail(XSHIELD_MAIL_TO, $subject, $body, implode("\r\n", $headers));
 }
 
 function xshield_mail_footer($page = '')

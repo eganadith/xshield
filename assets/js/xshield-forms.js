@@ -1,27 +1,6 @@
 (function () {
     'use strict';
 
-    // #region agent log
-    function debugLog(location, message, data, hypothesisId) {
-        fetch('http://127.0.0.1:7839/ingest/e2e76956-23e9-481b-9ce0-4635f4cf51a6', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-                'X-Debug-Session-Id': 'ca5b13',
-            },
-            body: JSON.stringify({
-                sessionId: 'ca5b13',
-                runId: 'form-client',
-                hypothesisId: hypothesisId || 'A',
-                location: location,
-                message: message,
-                data: data || {},
-                timestamp: Date.now(),
-            }),
-        }).catch(function () {});
-    }
-    // #endregion
-
     function hideNotice(notice) {
         if (!notice) {
             return;
@@ -68,33 +47,8 @@
                 try {
                     data = text ? JSON.parse(text) : null;
                 } catch (parseError) {
-                    // #region agent log
-                    debugLog(
-                        'xshield-forms.js:postForm',
-                        'non-json response',
-                        {
-                            action: action,
-                            status: response.status,
-                            bodyPreview: text.slice(0, 120),
-                        },
-                        'C'
-                    );
-                    // #endregion
                     throw parseError;
                 }
-
-                // #region agent log
-                debugLog(
-                    'xshield-forms.js:postForm',
-                    'form response',
-                    {
-                        action: action,
-                        status: response.status,
-                        success: !!(data && data.success),
-                    },
-                    'A'
-                );
-                // #endregion
 
                 return {
                     ok: response.ok,
@@ -109,14 +63,6 @@
             event.preventDefault();
 
             if (!form.checkValidity()) {
-                // #region agent log
-                debugLog(
-                    'xshield-forms.js:bindSubmit',
-                    'html validation blocked submit',
-                    { action: form.getAttribute('action') || '' },
-                    'E'
-                );
-                // #endregion
                 form.reportValidity();
                 return;
             }
@@ -144,18 +90,7 @@
 
                     onError(errorMessage, notice);
                 })
-                .catch(function (error) {
-                    // #region agent log
-                    debugLog(
-                        'xshield-forms.js:bindSubmit',
-                        'form submit failed',
-                        {
-                            action: form.getAttribute('action') || '',
-                            error: error && error.message ? error.message : 'unknown',
-                        },
-                        'A'
-                    );
-                    // #endregion
+                .catch(function () {
                     onError('Something went wrong. Please try again.', notice);
                 })
                 .finally(function () {
@@ -167,19 +102,6 @@
     }
 
     var contactForm = document.getElementById('contact-form');
-
-    // #region agent log
-    debugLog(
-        'xshield-forms.js:init',
-        'form handlers initialized',
-        {
-            hasContactForm: !!contactForm,
-            newsletterForms: document.querySelectorAll('.xshield-newsletter-form').length,
-            page: window.location.pathname,
-        },
-        'A'
-    );
-    // #endregion
 
     if (contactForm) {
         bindSubmit(
