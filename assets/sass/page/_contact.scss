@@ -21,9 +21,12 @@
 		position: relative;
 		z-index: 1;
 
+		&__tagline,
+		&__subtitle,
+		h1,
 		h2,
 		h3 {
-			color: $white;
+			color: $white !important;
 		}
 	}
 }
