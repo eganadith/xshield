@@ -14,6 +14,11 @@ python3 "$ROOT/build-inquiry-pages.py"
 echo "→ Applying SEO (meta, schema, sitemap)..."
 python3 "$ROOT/build-seo.py"
 
+echo "→ Verifying production files..."
+/bin/bash "$ROOT/scripts/verify-build.sh"
+
 echo "✓ Build complete."
-echo "  Next: git add -A && git commit && git push"
-echo "  Then: cPanel → Git Version Control → Pull/Deploy"
+echo ""
+echo "  Next:"
+echo "    git add -A && git commit -m \"Deploy update\" && git push origin main"
+echo "    cPanel → Git Version Control → Update from Remote → Deploy HEAD Commit"

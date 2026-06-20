@@ -5,3 +5,4 @@ node_modules/
 .cursor/
 deploy/staging/
 xshield-cpanel-deploy.zip
+assets/sass/style.css.map

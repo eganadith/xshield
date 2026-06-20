@@ -287,6 +287,13 @@
         max-width: 800px;
         width: 100%;
         margin: 0 auto;
+        color: $white;
+    }
+
+    .video-hero__title,
+    .content-area h1,
+    .content-area h2 {
+        color: $white !important;
     }
 
     .slide-title {

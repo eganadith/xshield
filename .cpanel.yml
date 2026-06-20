@@ -1,5 +1,8 @@
 ---
+# cPanel Git deploy — runs automatically on "Deploy HEAD Commit"
 deployment:
   tasks:
     - export DEPLOYPATH=/home/iq5yfetciw4z/public_html/
+    - /bin/chmod +x ./scripts/cpanel-sync.sh ./scripts/verify-build.sh
+    - /bin/bash ./scripts/verify-build.sh
     - /bin/bash ./scripts/cpanel-sync.sh
