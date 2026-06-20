@@ -1,0 +1,249 @@
+/* XShield 3Ps — three-pillar approach cards (About page) */
+.xshield-3ps {
+    background: linear-gradient(180deg, $white 0%, $apple-bg-alt 45%, $apple-bg-alt 100%);
+
+    .wpo-section-title-s2 {
+        text-align: center;
+        margin-bottom: $apple-space-48;
+
+        .xshield-3ps__highlight {
+            color: $theme-primary-color-s2;
+        }
+
+        p {
+            max-width: 520px;
+            margin: $apple-space-16 auto 0;
+            font-size: $apple-type-17;
+            line-height: $apple-lh-body;
+            color: $apple-text-secondary;
+        }
+    }
+
+    &__grid {
+        position: relative;
+
+        .row {
+            align-items: stretch;
+            --bs-gutter-y: #{$apple-space-24};
+
+            > [class*="col"] {
+                display: flex;
+            }
+        }
+
+        @media (min-width: 992px) {
+            &::before {
+                content: "";
+                position: absolute;
+                top: 52px;
+                left: 16.66%;
+                right: 16.66%;
+                height: 2px;
+                background: linear-gradient(
+                    90deg,
+                    rgba($theme-primary-color, 0.15) 0%,
+                    rgba($theme-primary-color-s2, 0.35) 50%,
+                    rgba($theme-primary-color, 0.15) 100%
+                );
+                border-radius: 2px;
+                pointer-events: none;
+                z-index: 0;
+            }
+        }
+    }
+
+    &__card {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        flex: 1 1 auto;
+        width: 100%;
+        min-height: 100%;
+        padding: $apple-space-32 $apple-space-32 $apple-space-32;
+        background: $white;
+        border-radius: $apple-radius-card;
+        border: 1px solid rgba($apple-border-subtle, 0.65);
+        box-shadow: 0 4px 24px rgba(0, 0, 0, 0.04);
+        overflow: hidden;
+        z-index: 1;
+        transition: transform 0.35s ease, box-shadow 0.35s ease;
+
+        &::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            border-radius: $apple-radius-card $apple-radius-card 0 0;
+        }
+
+        &:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 16px 40px rgba(0, 0, 0, 0.08);
+        }
+
+        &--protect {
+            &::before {
+                background: linear-gradient(90deg, $theme-primary-color, lighten($theme-primary-color, 12%));
+            }
+
+            .xshield-3ps__icon {
+                color: $theme-primary-color;
+                background: rgba($theme-primary-color, 0.1);
+            }
+
+            .xshield-3ps__index {
+                color: rgba($theme-primary-color, 0.35);
+            }
+
+            .xshield-3ps__letter {
+                color: rgba($theme-primary-color, 0.06);
+            }
+        }
+
+        &--prevent {
+            &::before {
+                background: linear-gradient(90deg, $theme-primary-color-s2, lighten($theme-primary-color-s2, 10%));
+            }
+
+            .xshield-3ps__icon {
+                color: $theme-primary-color-s2;
+                background: rgba($theme-primary-color-s2, 0.12);
+            }
+
+            .xshield-3ps__index {
+                color: rgba($theme-primary-color-s2, 0.35);
+            }
+
+            .xshield-3ps__letter {
+                color: rgba($theme-primary-color-s2, 0.06);
+            }
+        }
+
+        &--preserve {
+            &::before {
+                background: linear-gradient(90deg, #2e6b8a, $theme-primary-color);
+            }
+
+            .xshield-3ps__icon {
+                color: #2e6b8a;
+                background: rgba(#2e6b8a, 0.1);
+            }
+
+            .xshield-3ps__index {
+                color: rgba(#2e6b8a, 0.35);
+            }
+
+            .xshield-3ps__letter {
+                color: rgba(#2e6b8a, 0.06);
+            }
+        }
+    }
+
+    &__index {
+        position: absolute;
+        top: $apple-space-24;
+        right: $apple-space-24;
+        font-size: $apple-type-40;
+        font-weight: 700;
+        line-height: 1;
+        letter-spacing: -0.04em;
+        pointer-events: none;
+    }
+
+    &__letter {
+        position: absolute;
+        bottom: -18px;
+        right: 8px;
+        font-size: 140px;
+        font-weight: 700;
+        line-height: 1;
+        letter-spacing: -0.06em;
+        pointer-events: none;
+        user-select: none;
+    }
+
+    &__icon {
+        position: relative;
+        z-index: 1;
+        width: 72px;
+        height: 72px;
+        margin-bottom: $apple-space-24;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50%;
+
+        svg {
+            width: 36px;
+            height: 36px;
+        }
+    }
+
+    &__title {
+        position: relative;
+        z-index: 1;
+        margin: 0 0 $apple-space-12;
+        font-size: $apple-type-28;
+        font-weight: 600;
+        line-height: $apple-lh-title;
+        letter-spacing: $apple-ls-heading;
+        color: $heading-color;
+    }
+
+    &__desc {
+        position: relative;
+        z-index: 1;
+        flex: 1 1 auto;
+        margin: 0;
+        font-size: $apple-type-17;
+        line-height: $apple-lh-body;
+        color: $apple-text-secondary;
+    }
+
+    @media (max-width: 991px) {
+        &__card {
+            padding: $apple-space-24;
+        }
+
+        &__letter {
+            font-size: 110px;
+            bottom: -12px;
+        }
+    }
+
+    @media (max-width: 767px) {
+        .wpo-section-title-s2 {
+            margin-bottom: $apple-space-32;
+        }
+
+        &__index {
+            font-size: $apple-type-28;
+        }
+    }
+
+    &.section-padding {
+        padding-bottom: calc(#{$section-padding-y} + #{$apple-space-48});
+
+        @media (max-width: 991px) {
+            padding-bottom: calc(#{$section-padding-y-tablet} + #{$apple-space-32});
+        }
+
+        @media (max-width: 767px) {
+            padding-bottom: calc(#{$section-padding-y-mobile} + #{$apple-space-24});
+        }
+    }
+
+    + .wpo-choose-section.section-padding {
+        padding-top: calc(#{$section-padding-y} + #{$apple-space-48});
+
+        @media (max-width: 991px) {
+            padding-top: calc(#{$section-padding-y-tablet} + #{$apple-space-32});
+        }
+
+        @media (max-width: 767px) {
+            padding-top: calc(#{$section-padding-y-mobile} + #{$apple-space-24});
+        }
+    }
+}

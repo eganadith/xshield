@@ -1,0 +1,341 @@
+/* Service inquiry landing pages */
+.xshield-inquiry-page {
+    .xshield-fab--whatsapp {
+        bottom: calc(88px + env(safe-area-inset-bottom, 0px));
+
+        @media (min-width: 768px) {
+            bottom: 24px;
+        }
+    }
+
+    .xshield-fab--call {
+        @media (max-width: 767px) {
+            display: none;
+        }
+    }
+}
+
+.xshield-inquiry {
+    background: $apple-bg-alt;
+
+    &__layout {
+        display: grid;
+        grid-template-columns: 1.05fr 0.95fr;
+        gap: $apple-space-48;
+        align-items: stretch;
+        margin-bottom: $apple-space-64;
+
+        @media (max-width: 991px) {
+            grid-template-columns: 1fr;
+            gap: $apple-space-32;
+            margin-bottom: $apple-space-48;
+        }
+    }
+
+    &__media {
+        position: relative;
+        border-radius: $apple-radius-card;
+        overflow: hidden;
+        min-height: 360px;
+        box-shadow: 0 16px 48px rgba(0, 0, 0, 0.1);
+
+        img {
+            width: 100%;
+            height: 100%;
+            min-height: 360px;
+            object-fit: cover;
+            display: block;
+        }
+
+        &::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(180deg, rgba(0, 0, 0, 0.05) 40%, rgba(0, 0, 0, 0.35) 100%);
+            pointer-events: none;
+        }
+
+        @media (max-width: 991px) {
+            aspect-ratio: 16 / 10;
+            min-height: 0;
+
+            img {
+                min-height: 0;
+            }
+        }
+    }
+
+    &__badge {
+        position: absolute;
+        left: $apple-space-24;
+        bottom: $apple-space-24;
+        z-index: 1;
+        padding: 8px 16px;
+        border-radius: $apple-radius-pill;
+        background: $theme-primary-color-s2;
+        color: $black;
+        font-size: $apple-type-14;
+        font-weight: 600;
+        line-height: 1.2;
+    }
+
+    &__panel {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding: $apple-space-48;
+        background: $white;
+        border-radius: $apple-radius-card;
+        border: 1px solid rgba($apple-border-subtle, 0.55);
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.06);
+
+        @media (max-width: 767px) {
+            padding: $apple-space-32 $apple-space-24;
+        }
+    }
+
+    &__eyebrow {
+        margin: 0 0 $apple-space-12;
+        font-size: $apple-type-12;
+        font-weight: 600;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+        color: $apple-text-tertiary;
+    }
+
+    &__title {
+        margin: 0 0 $apple-space-16;
+        font-size: $apple-type-40;
+        font-weight: 600;
+        line-height: $apple-lh-title;
+        letter-spacing: $apple-ls-heading;
+        color: $heading-color;
+
+        @media (max-width: 767px) {
+            font-size: $apple-type-28;
+        }
+    }
+
+    &__desc {
+        margin: 0 0 $apple-space-24;
+        font-size: $apple-type-17;
+        line-height: $apple-lh-body;
+        color: $apple-text-secondary;
+    }
+
+    &__trust {
+        display: flex;
+        flex-wrap: wrap;
+        gap: $apple-space-8;
+        margin: 0 0 $apple-space-32;
+        padding: 0;
+        list-style: none;
+
+        li {
+            padding: 6px 14px;
+            font-size: $apple-type-14;
+            font-weight: 500;
+            color: $apple-text-primary;
+            background: $apple-bg-alt;
+            border-radius: $apple-radius-pill;
+        }
+    }
+
+    &__actions {
+        display: flex;
+        flex-direction: column;
+        gap: $apple-space-12;
+        margin-bottom: $apple-space-16;
+    }
+
+    &__whatsapp {
+        display: inline-flex !important;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        min-height: 52px;
+        width: 100%;
+        padding: 0 24px !important;
+        font-size: $apple-type-17 !important;
+        font-weight: 600 !important;
+        text-decoration: none !important;
+        border-radius: $apple-radius-pill !important;
+        box-shadow: 0 4px 20px rgba($theme-primary-color-s2, 0.35);
+
+        svg {
+            width: 22px;
+            height: 22px;
+            fill: currentColor;
+            flex-shrink: 0;
+        }
+    }
+
+    &__call {
+        display: inline-flex !important;
+        align-items: center;
+        justify-content: center;
+        min-height: 48px;
+        width: 100%;
+        text-decoration: none !important;
+    }
+
+    &__form-link {
+        display: inline-block;
+        text-align: center;
+        font-size: $apple-type-14;
+        font-weight: 500;
+        color: $theme-primary-color;
+        text-decoration: none;
+
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+
+    &__note {
+        margin: 0;
+        font-size: $apple-type-14;
+        line-height: 1.45;
+        color: $apple-text-tertiary;
+    }
+
+    &__steps {
+        padding: $apple-space-48;
+        background: $white;
+        border-radius: $apple-radius-card;
+        border: 1px solid rgba($apple-border-subtle, 0.55);
+        box-shadow: 0 4px 24px rgba(0, 0, 0, 0.04);
+
+        @media (max-width: 767px) {
+            padding: $apple-space-32 $apple-space-24;
+        }
+    }
+
+    &__steps-title {
+        margin: 0 0 $apple-space-32;
+        font-size: $apple-type-28;
+        font-weight: 600;
+        line-height: $apple-lh-title;
+        letter-spacing: $apple-ls-heading;
+        color: $heading-color;
+        text-align: center;
+
+        @media (max-width: 767px) {
+            font-size: $apple-type-24;
+            margin-bottom: $apple-space-24;
+        }
+    }
+
+    &__steps-list {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: $apple-space-24;
+        margin: 0;
+        padding: 0;
+        list-style: none;
+
+        @media (max-width: 991px) {
+            grid-template-columns: 1fr;
+            gap: $apple-space-16;
+        }
+
+        li {
+            display: flex;
+            gap: $apple-space-16;
+            align-items: flex-start;
+            padding: $apple-space-24;
+            background: $apple-bg-alt;
+            border-radius: $apple-radius-media;
+
+            @media (max-width: 767px) {
+                padding: $apple-space-16;
+            }
+
+            strong {
+                display: block;
+                margin-bottom: 4px;
+                font-size: $apple-type-17;
+                font-weight: 600;
+                color: $heading-color;
+            }
+
+            p {
+                margin: 0;
+                font-size: $apple-type-14;
+                line-height: 1.45;
+                color: $apple-text-secondary;
+            }
+        }
+    }
+
+    &__step-num {
+        flex-shrink: 0;
+        width: 44px;
+        height: 44px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50%;
+        background: $theme-primary-color;
+        color: $white;
+        font-size: $apple-type-14;
+        font-weight: 700;
+        line-height: 1;
+    }
+
+    &__sticky {
+        display: none;
+        position: fixed;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        z-index: 999;
+        padding: $apple-space-12 $apple-space-16;
+        padding-bottom: calc(#{$apple-space-12} + env(safe-area-inset-bottom, 0px));
+        background: rgba($white, 0.96);
+        border-top: 1px solid rgba($apple-border-subtle, 0.65);
+        backdrop-filter: blur(12px);
+        gap: $apple-space-8;
+        grid-template-columns: 1fr 1fr;
+
+        @media (max-width: 767px) {
+            display: grid;
+        }
+    }
+
+    &__sticky-btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        min-height: 48px;
+        padding: 0 16px;
+        border-radius: $apple-radius-pill;
+        font-size: $apple-type-14;
+        font-weight: 600;
+        text-decoration: none;
+        line-height: 1.2;
+
+        svg {
+            width: 18px;
+            height: 18px;
+            fill: currentColor;
+        }
+
+        &--wa {
+            background: $theme-primary-color-s2;
+            color: $black;
+        }
+
+        &--call {
+            background: $theme-primary-color;
+            color: $white;
+        }
+    }
+}
+
+@media (max-width: 767px) {
+    .xshield-inquiry-page {
+        padding-bottom: calc(72px + env(safe-area-inset-bottom, 0px));
+    }
+}

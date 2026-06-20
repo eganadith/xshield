@@ -1,0 +1,8 @@
+<svg width="200" height="56" viewBox="0 0 200 56" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path d="M28 4L48 10V26C48 38.15 38.5 48.5 28 52C17.5 48.5 8 38.15 8 26V10L28 4Z" fill="#1A5276"/>
+  <path d="M28 10L42 14.5V26C42 35.2 34.8 43.2 28 46C21.2 43.2 14 35.2 14 26V14.5L28 10Z" fill="white"/>
+  <path d="M22 22L28 32L34 22H30.5L28 26.5L25.5 22H22Z" fill="#3B6D11"/>
+  <path d="M28 18C24.5 18 21.5 20.5 21.5 24C21.5 27.5 24.5 30 28 30C31.5 30 34.5 27.5 34.5 24C34.5 20.5 31.5 18 28 18Z" fill="#3B6D11" fill-opacity="0.15"/>
+  <text x="58" y="24" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="700" fill="#1A5276">XShield</text>
+  <text x="58" y="42" font-family="Arial, Helvetica, sans-serif" font-size="9" font-weight="400" fill="#3B6D11">Pest Control &amp; Cleaning</text>
+</svg>

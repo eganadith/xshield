@@ -1,0 +1,75 @@
+/* 6. Home-style-3 */
+
+
+/* 6.1 about-section-s3 */
+
+.about-section.style-3 {
+    @media(max-width:1399px) {
+        padding-bottom: 50px;
+    }
+
+    @media(max-width:991px) {
+        padding-bottom: 0px;
+    }
+
+    .about-left-side {
+        margin: 0;
+        position: relative;
+
+        .about-left-client-box {
+            margin: 0;
+            position: absolute;
+            left: -50px;
+            top: 0;
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+
+            @media(max-width:575px) {
+                left: 0;
+                top: auto;
+                bottom: 0;
+            }
+
+            @media(max-width:450px) {
+                width: 150px;
+                height: 150px;
+            }
+        }
+
+        .leaf-shape {
+            position: absolute;
+            right: 60px;
+            bottom: 50px;
+
+            @media(max-width:450px) {
+                display: none;
+            }
+
+            img {
+                -webkit-animation: leafAniamtion 12s ease-in infinite;
+                animation: leafAniamtion 12s ease-in infinite;
+                border-radius: 0;
+            }
+        }
+    }
+}
+
+/* 6.2 wpo-team-section-s2 */
+
+.wpo-team-section.style-2 {
+    .wpo-team-wrap {
+        .wpo-team-item {
+            .wpo-team-img-wrap {
+                border-radius: 50%;
+                .wpo-team-img {
+                   border-radius: 50%; 
+                }
+            } 
+
+            .wpo-team-text {
+                text-align: center;
+            }
+        }
+    }
+}

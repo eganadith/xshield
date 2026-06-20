@@ -1,0 +1,247 @@
+/* Apple-style horizontal card carousel (XShield) */
+
+.xshield-apple-carousel {
+    background: $apple-bg-alt;
+    overflow: hidden;
+    padding-top: $section-padding-y;
+    padding-bottom: $section-padding-y;
+
+    @media (max-width: 991px) {
+        padding-top: $section-padding-y-tablet;
+        padding-bottom: $section-padding-y-tablet;
+    }
+
+    @media (max-width: 767px) {
+        padding-top: $section-padding-y-mobile;
+        padding-bottom: $section-padding-y-mobile;
+    }
+
+    &__header {
+        display: flex;
+        align-items: flex-end;
+        justify-content: space-between;
+        gap: $apple-space-24;
+        margin-bottom: $apple-space-32;
+        flex-wrap: wrap;
+    }
+
+    &__eyebrow {
+        display: inline-flex;
+        align-items: center;
+        gap: $apple-space-8;
+        color: $text-color;
+        font-size: $apple-type-14;
+        font-weight: 500;
+        margin-bottom: $apple-space-12;
+
+        img {
+            width: 18px;
+            height: 18px;
+            object-fit: contain;
+        }
+    }
+
+    &__title {
+        font-size: clamp($apple-type-28, 4vw, $apple-type-48);
+        font-weight: 600;
+        line-height: $apple-lh-display;
+        letter-spacing: $apple-ls-heading;
+        color: $heading-color;
+        margin: 0;
+        max-width: 720px;
+    }
+
+    &__actions {
+        display: flex;
+        align-items: center;
+        gap: $apple-space-24;
+        margin-left: auto;
+        flex-shrink: 0;
+    }
+
+    &__link {
+        @extend .theme-btn-link;
+        white-space: nowrap;
+    }
+
+    &__nav {
+        display: flex;
+        gap: $apple-space-12;
+    }
+
+    &__nav-btn {
+        width: 36px;
+        height: 36px;
+        border-radius: 50%;
+        border: 1px solid rgba(0, 0, 0, 0.12);
+        background: rgba(255, 255, 255, 0.72);
+        color: $heading-color;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        transition: background 0.2s ease, border-color 0.2s ease;
+        padding: 0;
+
+        &:hover:not(:disabled) {
+            background: $white;
+            border-color: rgba(0, 0, 0, 0.2);
+        }
+
+        &:disabled {
+            opacity: 0.35;
+            cursor: default;
+        }
+
+        i {
+            font-size: $apple-type-14;
+            line-height: 1;
+        }
+    }
+
+    &__scroll-wrap {
+        margin-left: max(0px, calc((100vw - 1320px) / 2 + 12px));
+        padding-right: $apple-space-24;
+
+        @media (max-width: 1399px) {
+            margin-left: calc((100vw - 1140px) / 2 + 12px);
+        }
+
+        @media (max-width: 1199px) {
+            margin-left: calc((100vw - 960px) / 2 + 12px);
+        }
+
+        @media (max-width: 991px) {
+            margin-left: $apple-space-24;
+        }
+    }
+
+    &__track {
+        display: flex;
+        gap: $apple-space-24;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        scroll-behavior: smooth;
+        padding-bottom: $apple-space-8;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+
+        &::-webkit-scrollbar {
+            display: none;
+        }
+    }
+}
+
+.xshield-apple-card {
+    position: relative;
+    flex: 0 0 372px;
+    width: 372px;
+    min-height: 520px;
+    background: $white;
+    border-radius: $apple-radius-card;
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.06);
+    padding: $apple-space-32 $apple-space-32 28px;
+    scroll-snap-align: start;
+    display: flex;
+    flex-direction: column;
+
+    @media (max-width: 575px) {
+        flex-basis: 300px;
+        width: 300px;
+        min-height: 480px;
+        padding: $apple-space-24 $apple-space-24 22px;
+        border-radius: 22px;
+    }
+
+    &__label {
+        display: inline-flex;
+        align-items: center;
+        align-self: flex-start;
+        padding: 6px 14px;
+        background: $theme-primary-color-s2;
+        color: $white;
+        font-size: $apple-type-12;
+        font-weight: 600;
+        line-height: 1.25;
+        letter-spacing: 0.02em;
+        text-transform: none;
+        border-radius: $apple-radius-pill;
+        margin: 0 0 12px;
+    }
+
+    &__title {
+        font-size: $apple-type-28;
+        font-weight: 600;
+        line-height: $apple-lh-title;
+        letter-spacing: $apple-ls-heading;
+        color: $apple-text-primary;
+        margin: 0 0 $apple-space-12;
+
+        @media (max-width: 575px) {
+            font-size: $apple-type-24;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+
+            &:hover {
+                color: $theme-primary-color;
+            }
+        }
+    }
+
+    &__desc {
+        font-size: $apple-type-17;
+        line-height: $apple-lh-body;
+        color: $apple-text-secondary;
+        margin: 0 0 $apple-space-24;
+
+        @media (max-width: 575px) {
+            font-size: $apple-type-14;
+        }
+    }
+
+    &__media {
+        margin-top: auto;
+        border-radius: $apple-radius-media;
+        overflow: hidden;
+        background: $apple-bg-alt;
+        aspect-ratio: 4 / 3;
+
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+    }
+
+    &__plus {
+        position: absolute;
+        right: $apple-space-24;
+        bottom: $apple-space-24;
+        width: 35px;
+        height: 35px;
+        border-radius: 50%;
+        background: $apple-text-primary;
+        color: $white;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        text-decoration: none;
+        font-size: 22px;
+        font-weight: 300;
+        line-height: 1;
+        transition: transform 0.2s ease, background 0.2s ease;
+
+        span {
+            margin-top: -2px;
+        }
+
+        &:hover {
+            background: $theme-primary-color;
+            transform: scale(1.05);
+        }
+    }
+}

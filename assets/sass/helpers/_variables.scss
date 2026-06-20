@@ -1,0 +1,76 @@
+/*---------------------------
+	Fonts
+----------------------------*/
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap');
+
+// fonts
+$base-font-size: 16;
+$base-font: "Poppins", sans-serif;
+$heading-font: "Poppins", sans-serif;
+
+// Apple-inspired type scale
+$apple-type-12: 12px;
+$apple-type-14: 14px;
+$apple-type-17: 17px;
+$apple-type-21: 21px;
+$apple-type-24: 24px;
+$apple-type-28: 28px;
+$apple-type-40: 40px;
+$apple-type-48: 48px;
+$apple-type-56: 56px;
+
+$apple-lh-display: 1.05;
+$apple-lh-title: 1.15;
+$apple-lh-body: 1.47;
+
+$apple-ls-heading: -0.02em;
+
+// Apple-inspired spacing
+$apple-space-8: 8px;
+$apple-space-12: 12px;
+$apple-space-16: 16px;
+$apple-space-24: 24px;
+$apple-space-32: 32px;
+$apple-space-48: 48px;
+$apple-space-64: 64px;
+$apple-space-80: 80px;
+$apple-space-96: 96px;
+$apple-space-112: 112px;
+$apple-space-128: 128px;
+
+// Section rhythm (comfortable whitespace)
+$section-padding-y: $apple-space-112;
+$section-padding-y-tablet: $apple-space-80;
+$section-padding-y-mobile: $apple-space-64;
+$section-gap-tight: $apple-space-48;
+
+// Apple-inspired radii
+$apple-radius-input: 12px;
+$apple-radius-media: 18px;
+$apple-radius-card: 28px;
+$apple-radius-pill: 980px;
+
+$apple-border-subtle: #d2d2d7;
+$apple-text-primary: #1d1d1f;
+$apple-text-secondary: #6e6e73;
+$apple-text-tertiary: #86868b;
+$apple-bg-alt: #f5f5f7;
+
+// color
+$dark-gray: #1d1d1f;
+$body-color: #1d1d1f;
+$white: #fff;
+$light: #8188a9;
+$black: #000;
+$small-black: #F4F6F8;
+$cyan: #3B6D11;
+
+$theme-primary-color: #1A5276;
+$theme-primary-color-s2: #4A9B2F;
+$body-bg-color: #fff;
+$section-bg-color: $apple-bg-alt;
+$text-color: $apple-text-secondary;
+$text-light-color: $apple-text-tertiary;
+$heading-color: $apple-text-primary;
+$border-color: $apple-border-subtle;
+$border-color-s2: #DEDEDE;

@@ -1,0 +1,38 @@
+/* Simple CTA band — one per page, links to contact */
+.xshield-cta-band {
+    background: $apple-bg-alt;
+
+    &__inner {
+        max-width: 720px;
+        margin: 0 auto;
+        text-align: center;
+    }
+
+    h2 {
+        font-size: $apple-type-40;
+        font-weight: 600;
+        line-height: $apple-lh-title;
+        letter-spacing: $apple-ls-heading;
+        color: $heading-color;
+        margin: 0 0 $apple-space-16;
+
+        @media (max-width: 767px) {
+            font-size: $apple-type-28;
+        }
+    }
+
+    p {
+        font-size: $apple-type-17;
+        line-height: $apple-lh-body;
+        color: $apple-text-secondary;
+        margin: 0 0 $apple-space-32;
+    }
+
+    &__actions {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: center;
+        gap: $apple-space-16;
+    }
+}

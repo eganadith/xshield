@@ -1,0 +1,179 @@
+.theme-btn,
+.theme-btn-s2,
+.theme-btn-s3 {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	min-height: 44px;
+	padding: 0 22px;
+	border: 0;
+	border-radius: $apple-radius-pill;
+	font-family: $base-font;
+	font-size: $apple-type-17;
+	font-weight: 400;
+	line-height: 1.2;
+	text-transform: none;
+	text-decoration: none;
+	position: relative;
+	transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease, opacity 0.2s ease;
+	box-shadow: none;
+	overflow: visible;
+	padding-right: 22px;
+
+	&::before,
+	&::after {
+		display: none;
+	}
+
+	@include media-query(767px) {
+		min-height: 44px;
+		font-size: $apple-type-17;
+		padding: 0 20px;
+		padding-right: 20px;
+	}
+}
+
+.theme-btn {
+	background: $theme-primary-color-s2;
+	color: $black;
+
+	&:hover,
+	&:focus,
+	&:active {
+		background: darken($theme-primary-color-s2, 6%);
+		color: $black;
+	}
+}
+
+.theme-btn-s2 {
+	background-color: $theme-primary-color;
+	color: $white;
+
+	&:hover,
+	&:focus,
+	&:active {
+		background-color: darken($theme-primary-color, 6%);
+		color: $white;
+	}
+}
+
+.theme-btn-s3 {
+	background: transparent;
+	color: $theme-primary-color;
+	border: 1px solid $apple-border-subtle;
+	box-shadow: none;
+	padding-left: 22px;
+
+	&:hover,
+	&:focus,
+	&:active {
+		background: rgba(0, 0, 0, 0.04);
+		color: $theme-primary-color;
+		border-color: darken($apple-border-subtle, 8%);
+	}
+}
+
+.theme-btn-ghost {
+	background: transparent;
+	color: $white;
+	border: 1px solid rgba(255, 255, 255, 0.55);
+
+	&:hover,
+	&:focus,
+	&:active {
+		background: rgba(255, 255, 255, 0.1);
+		color: $white;
+		border-color: $white;
+	}
+}
+
+.theme-btn-link {
+	display: inline-flex;
+	align-items: center;
+	gap: 4px;
+	min-height: auto;
+	padding: 0;
+	border: 0;
+	border-radius: 0;
+	background: transparent;
+	color: $theme-primary-color;
+	font-family: $base-font;
+	font-size: $apple-type-17;
+	font-weight: 400;
+	line-height: $apple-lh-body;
+	text-decoration: none;
+	transition: opacity 0.2s ease;
+
+	&:hover,
+	&:focus {
+		opacity: 0.72;
+		text-decoration: underline;
+		color: $theme-primary-color;
+	}
+}
+
+.view-cart-btn {
+	@extend .theme-btn;
+	display: block;
+	margin-top: 15px;
+	border-radius: $apple-radius-input;
+	padding: 10px 22px;
+	min-height: 44px;
+
+	&:hover {
+		background-color: darken($theme-primary-color-s2, 6%);
+	}
+
+	&.s1 {
+		background: #ddd;
+		color: $black;
+
+		&:hover {
+			background-color: darken(#ddd, 8%);
+		}
+	}
+}
+
+// XShield floating action buttons
+.xshield-fab {
+	position: fixed;
+	z-index: 9999;
+	width: 44px;
+	height: 44px;
+	border-radius: 50%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	box-shadow: 0 4px 12px rgba(0, 0, 0, 0.18);
+	transition: transform 0.2s ease, box-shadow 0.2s ease;
+	text-decoration: none;
+
+	&:hover {
+		transform: scale(1.06);
+		box-shadow: 0 6px 16px rgba(0, 0, 0, 0.22);
+	}
+
+	svg {
+		width: 22px;
+		height: 22px;
+		fill: #fff;
+	}
+
+	&--whatsapp {
+		bottom: 24px;
+		right: 24px;
+		background: #25D366;
+	}
+
+	&--call {
+		bottom: 80px;
+		right: 24px;
+		background: $theme-primary-color;
+	}
+
+	@media (min-width: 992px) {
+		&--call {
+			display: none;
+		}
+	}
+}
