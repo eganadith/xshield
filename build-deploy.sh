@@ -25,6 +25,7 @@ cp "$ROOT/mail-config.php" "$STAGING/"
 cp "$ROOT/mail-contact.php" "$STAGING/"
 cp "$ROOT/mail-newsletter.php" "$STAGING/"
 cp "$ROOT/deploy/.htaccess" "$STAGING/"
+cp "$ROOT/robots.txt" "$ROOT/sitemap.xml" "$STAGING/"
 cp "$ROOT/deploy/README-DEPLOY.txt" "$STAGING/"
 
 echo "→ Copying assets (excluding dev files)..."

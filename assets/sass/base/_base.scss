@@ -209,24 +209,24 @@ img {
 
 /*** back to top **/
 .back-to-top {
-    background-color: transparentize($theme-primary-color, 0.3);
-    width: 45px;
-    height: 45px;
-    line-height: 45px;
-    border: 2px solid $theme-primary-color;
-    border-radius: 45px;
+    background-color: transparent;
+    width: 44px;
+    height: 44px;
+    line-height: 44px;
+    border: 0;
+    border-radius: 0;
     text-align: center;
     display: none;
     position: fixed;
     z-index: 9998;
-    right: 15px;
-    bottom: 15px;
+    right: var(--xshield-fab-right, 16px);
+    bottom: calc(
+        var(--xshield-fab-base, 16px) +
+        (var(--xshield-fab-size, 48px) + var(--xshield-fab-gap, 12px)) * 2
+    );
     @include transition-time(0.2s);
 
     @include media-query(991px) {
-        width: var(--xshield-fab-size, 48px);
-        height: var(--xshield-fab-size, 48px);
-        line-height: var(--xshield-fab-size, 48px);
         right: var(--xshield-fab-right, 16px);
         bottom: calc(
             var(--xshield-fab-base, 16px) +
@@ -234,15 +234,20 @@ img {
         );
     }
 
+    @media (min-width: 992px) {
+        right: 24px;
+        bottom: calc(24px + 44px + 12px);
+    }
+
     &:hover {
-        background-color: $theme-primary-color;
+        background-color: transparent;
     }
 }
 
 .back-to-top i {
-    font-size: 18px;
-    font-size: calc-rem-value(18);
-    color: #fff;
+    font-size: 22px;
+    font-size: calc-rem-value(22);
+    color: $apple-text-secondary;
     position: absolute;
     left: 50%;
     top: 50%;

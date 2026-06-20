@@ -31,7 +31,7 @@
 	.breadcumb-wrap {
 		text-align: center;
 
-		h2 {
+		&__tagline {
 			color: #000;
 			font-family: $base-font;
 			font-size: 20px;
@@ -40,6 +40,7 @@
 			line-height: 65px;
 			letter-spacing: -0.2px;
 			text-transform: capitalize;
+			margin: 0;
 
 			@media(max-width:575px) {
 				font-size: 18px;
@@ -47,6 +48,15 @@
 			}
 		}
 
+		&__subtitle {
+			color: #0E152B;
+			font-size: clamp(1.25rem, 4vw + 0.5rem, 2rem);
+			font-weight: 500;
+			line-height: 1.2;
+			margin: 0 0 0.5rem;
+		}
+
+		h1,
 		h3 {
 			color: #0E152B;
 			text-align: center;

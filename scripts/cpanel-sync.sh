@@ -24,6 +24,7 @@ done
 /bin/cp "$ROOT"/inquiry/*.html "${DEPLOYPATH}inquiry/"
 /bin/cp "$ROOT/mail-config.php" "$ROOT/mail-contact.php" "$ROOT/mail-newsletter.php" "$DEPLOYPATH"
 /bin/cp "$ROOT/deploy/.htaccess" "${DEPLOYPATH}.htaccess"
+/bin/cp "$ROOT/robots.txt" "$ROOT/sitemap.xml" "$DEPLOYPATH"
 
 if command -v rsync >/dev/null 2>&1; then
   rsync -a --delete \

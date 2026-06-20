@@ -120,6 +120,107 @@
     .shape-img {
         bottom: -40px;
     }
+
+    .about-right-side .about-right-img {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        max-width: 100%;
+
+        img {
+            width: 100%;
+            border-radius: $apple-radius-media;
+        }
+
+        .content-box {
+            display: none;
+        }
+
+        .xshield-about-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: $apple-space-12;
+            justify-content: flex-end;
+            width: 100%;
+            margin-top: $apple-space-24;
+            padding: 0 4px;
+
+            @media (max-width: 991px) {
+                justify-content: center;
+            }
+        }
+
+        .xshield-glow-pill {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 44px;
+            padding: 10px 22px;
+            border-radius: $apple-radius-pill;
+            font-size: 15px;
+            font-weight: 600;
+            letter-spacing: -0.02em;
+            line-height: 1.2;
+            color: $apple-text-primary;
+            background: rgba(255, 255, 255, 0.78);
+            backdrop-filter: blur(18px);
+            -webkit-backdrop-filter: blur(18px);
+            border: 1px solid rgba(255, 255, 255, 0.85);
+            box-shadow:
+                inset 0 1px 0 rgba(255, 255, 255, 0.9),
+                0 4px 20px rgba(0, 0, 0, 0.08),
+                0 0 0 1px rgba(255, 255, 255, 0.35);
+            transition: transform 0.2s ease, box-shadow 0.25s ease, background-color 0.2s ease;
+
+            &--pest {
+                box-shadow:
+                    inset 0 1px 0 rgba(255, 255, 255, 0.9),
+                    0 4px 20px rgba(0, 0, 0, 0.08),
+                    0 0 28px rgba($theme-primary-color-s2, 0.28),
+                    0 0 0 1px rgba($theme-primary-color-s2, 0.12);
+            }
+
+            &--clean {
+                box-shadow:
+                    inset 0 1px 0 rgba(255, 255, 255, 0.9),
+                    0 4px 20px rgba(0, 0, 0, 0.08),
+                    0 0 28px rgba(0, 122, 255, 0.18),
+                    0 0 0 1px rgba(0, 122, 255, 0.1);
+            }
+
+            &:hover {
+                color: $apple-text-primary;
+                transform: translateY(-2px);
+                background: rgba(255, 255, 255, 0.92);
+            }
+
+            &--pest:hover {
+                box-shadow:
+                    inset 0 1px 0 rgba(255, 255, 255, 1),
+                    0 8px 28px rgba(0, 0, 0, 0.1),
+                    0 0 40px rgba($theme-primary-color-s2, 0.38),
+                    0 0 0 1px rgba($theme-primary-color-s2, 0.18);
+            }
+
+            &--clean:hover {
+                box-shadow:
+                    inset 0 1px 0 rgba(255, 255, 255, 1),
+                    0 8px 28px rgba(0, 0, 0, 0.1),
+                    0 0 40px rgba(0, 122, 255, 0.28),
+                    0 0 0 1px rgba(0, 122, 255, 0.16);
+            }
+
+            &:active {
+                transform: translateY(0) scale(0.98);
+            }
+
+            @media (max-width: 767px) {
+                font-size: 14px;
+                padding: 9px 18px;
+                min-height: 40px;
+            }
+        }
+    }
 }
 
 // Hero
@@ -191,7 +292,9 @@
     .slide-title {
         margin-bottom: $apple-space-24;
 
-        h2 {
+        h1,
+        h2,
+        .video-hero__title {
             font-size: $apple-type-56;
             font-weight: 600;
             line-height: $apple-lh-display;
@@ -415,13 +518,14 @@
 
 // Breadcrumb inner pages
 .breadcumb-area {
-    .breadcumb-wrap h2 {
+    .breadcumb-wrap__tagline {
         font-size: $apple-type-12;
         font-weight: 600;
         letter-spacing: 0.06em;
         text-transform: uppercase;
     }
 
+    .breadcumb-wrap h1,
     .breadcumb-wrap h3 {
         font-size: $apple-type-40;
         font-weight: 600;
@@ -430,6 +534,29 @@
 
         @media (max-width: 767px) {
             font-size: $apple-type-28;
+        }
+    }
+}
+
+// Dubai service areas (local SEO)
+.xshield-areas {
+    &__list {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 10px;
+        max-width: 960px;
+        margin: 32px auto 0;
+        padding: 0;
+
+        li {
+            list-style: none;
+            padding: 8px 16px;
+            border-radius: 999px;
+            background: rgba(74, 155, 47, 0.08);
+            color: $apple-text-primary;
+            font-size: $apple-type-14;
+            font-weight: 500;
         }
     }
 }
@@ -1748,4 +1875,48 @@ section {
 .partners-section {
     padding-top: $section-gap-tight;
     padding-bottom: $section-gap-tight;
+}
+
+// Back to top — arrow only, stacked above FABs (no circle)
+.back-to-top {
+    background: transparent !important;
+    border: none !important;
+    border-radius: 0 !important;
+    width: 44px !important;
+    height: 44px !important;
+    line-height: 1 !important;
+    box-shadow: none !important;
+    z-index: 9998;
+    right: var(--xshield-fab-right, 16px);
+    bottom: calc(
+        var(--xshield-fab-base, 16px) +
+        (var(--xshield-fab-size, 48px) + var(--xshield-fab-gap, 12px)) * 2
+    );
+
+    @media (min-width: 992px) {
+        right: 24px;
+        bottom: calc(24px + 44px + 12px);
+    }
+
+    &:hover,
+    &:focus-visible {
+        background: transparent !important;
+        transform: translateY(-2px);
+    }
+
+    &:focus-visible {
+        outline: 2px solid rgba($apple-text-primary, 0.35);
+        outline-offset: 4px;
+    }
+
+    i {
+        display: block;
+        font-size: 22px;
+        line-height: 1;
+        color: $apple-text-secondary !important;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+    }
 }

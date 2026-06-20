@@ -17,7 +17,7 @@ WHATSAPP_MESSAGE = (
     "Hello, I'd like to enquire about {title} with XShield. "
     "Please contact me for a free inspection."
 )
-SITE_URL = "https://xshieldservices.com"
+SITE_URL = "https://xshield-services.com"
 
 
 def whatsapp_url(title: str) -> str:

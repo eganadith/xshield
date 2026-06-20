@@ -11,6 +11,9 @@ npx sass assets/sass/style.scss assets/sass/style.css --style=compressed
 echo "→ Generating inquiry pages..."
 python3 "$ROOT/build-inquiry-pages.py"
 
+echo "→ Applying SEO (meta, schema, sitemap)..."
+python3 "$ROOT/build-seo.py"
+
 echo "✓ Build complete."
 echo "  Next: git add -A && git commit && git push"
 echo "  Then: cPanel → Git Version Control → Pull/Deploy"

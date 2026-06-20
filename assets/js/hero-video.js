@@ -7,7 +7,8 @@
     }
 
     var soundToggle = document.querySelector('.video-hero__sound-toggle');
-    var CACHE_BUST = '20260620';
+    var CACHE_BUST = '20260620b';
+    var MP4_SRC = 'assets/images/video.mp4?v=' + CACHE_BUST;
     var isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) ||
         (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
     var isMobile = window.matchMedia('(max-width: 767px)').matches;
@@ -21,17 +22,25 @@
     function configureSources() {
         var sources = video.querySelectorAll('source');
         var i;
+        var mp4Source = null;
 
         for (i = 0; i < sources.length; i += 1) {
-            if (isIOS || isMobile) {
-                if (sources[i].type === 'video/mp4') {
-                    sources[i].src = 'assets/images/video-mobile.mp4?v=' + CACHE_BUST;
-                }
-
-                if (sources[i].type === 'video/webm') {
-                    sources[i].remove();
-                }
+            if (sources[i].type === 'video/webm' && (isIOS || isMobile)) {
+                sources[i].remove();
+                continue;
             }
+
+            if (sources[i].type === 'video/mp4') {
+                mp4Source = sources[i];
+                sources[i].src = MP4_SRC;
+            }
+        }
+
+        if (!mp4Source) {
+            mp4Source = document.createElement('source');
+            mp4Source.src = MP4_SRC;
+            mp4Source.type = 'video/mp4';
+            video.appendChild(mp4Source);
         }
 
         video.load();
@@ -45,7 +54,7 @@
     }
 
     function reloadVideo() {
-        video.load();
+        configureSources();
         playVideo();
     }
 
@@ -72,6 +81,15 @@
     }
 
     configureSources();
+
+    video.addEventListener('error', function () {
+        var mp4 = video.querySelector('source[type="video/mp4"]');
+        if (mp4 && mp4.src.indexOf('video.mp4') === -1) {
+            mp4.src = MP4_SRC;
+            video.load();
+            playVideo();
+        }
+    });
 
     if (soundToggle) {
         soundToggle.addEventListener('click', toggleSound);

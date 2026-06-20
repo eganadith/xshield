@@ -1,0 +1,126 @@
+{
+  "siteUrl": "https://xshield-services.com",
+  "siteName": "XShield Pest Control & Cleaning Services L.L.C.",
+  "defaultOgImage": "assets/logo/logo-color.webp",
+  "locale": "en_AE",
+  "business": {
+    "legalName": "XShield Pest Control & Cleaning Services L.L.C.",
+    "telephone": "+97144106502",
+    "telephoneDisplay": "+971 4 410 6502",
+    "whatsapp": "+971586440451",
+    "email": "contact@xshield-services.com",
+    "priceRange": "$$",
+    "address": {
+      "streetAddress": "Office 303, Mohammad Bin Ahmad Building, Al Quoz 3",
+      "addressLocality": "Dubai",
+      "addressRegion": "Dubai",
+      "postalCode": "391619",
+      "addressCountry": "AE"
+    },
+    "geo": {
+      "latitude": 25.1288,
+      "longitude": 55.2272
+    },
+    "openingHours": "Mo-Su 00:00-23:59",
+    "areaServed": [
+      "Dubai",
+      "Al Quoz",
+      "Dubai Marina",
+      "JLT",
+      "Downtown Dubai",
+      "Business Bay",
+      "Deira",
+      "Jumeirah",
+      "Arabian Ranches",
+      "Dubai Hills",
+      "JVC",
+      "Mirdif",
+      "Silicon Oasis",
+      "Palm Jumeirah"
+    ],
+    "sameAs": [
+      "https://www.facebook.com/p/XShield-Pest-Control-Cleaning-Services-100093557103246/",
+      "https://x.com/XshieldPest",
+      "https://www.instagram.com/xshieldpest",
+      "https://www.tiktok.com/@xshieldpestnclean"
+    ]
+  },
+  "corePages": {
+    "index.html": {
+      "path": "/",
+      "title": "Pest Control Dubai | Licensed Exterminators | Free Inspection | XShield",
+      "description": "Dubai's trusted pest control company. Dubai Municipality licensed. Cockroach, bed bug, termite & rodent control. 24/7 service, free inspection. Call +971 4 410 6502.",
+      "ogTitle": "Pest Control Dubai | XShield | To Protect and Prevent",
+      "keywords": "pest control dubai, pest control company dubai, exterminator dubai, cockroach control dubai, bed bug treatment dubai, termite control dubai, rodent control dubai, dubai municipality pest control",
+      "ogImage": "assets/images/service/service-1.webp",
+      "schemas": ["organization", "localBusiness", "webSite", "faqPage"]
+    },
+    "about.html": {
+      "path": "/about.html",
+      "title": "About XShield | Dubai Municipality Licensed Pest Control",
+      "description": "Meet XShield — Dubai's licensed pest control & cleaning experts. 10+ years protecting homes, restaurants & businesses across Dubai and the UAE.",
+      "ogTitle": "About Us | XShield Pest Control Dubai",
+      "keywords": "pest control company dubai, licensed pest control dubai, xshield pest control",
+      "ogImage": "assets/images/about/about-1.webp",
+      "schemas": ["organization", "localBusiness", "breadcrumb"]
+    },
+    "service.html": {
+      "path": "/service.html",
+      "title": "Pest Control Services Dubai | Cockroach, Bed Bug, Termite | XShield",
+      "description": "Full pest control services in Dubai: cockroach, bed bug, termite, ant, rodent, bird & snake control plus deep cleaning. Free inspection. Licensed by Dubai Municipality.",
+      "ogTitle": "Pest Control Services Dubai | XShield",
+      "keywords": "pest control services dubai, cockroach control dubai, bed bug removal dubai, termite control dubai, deep cleaning dubai",
+      "ogImage": "assets/images/service/service-2.webp",
+      "schemas": ["organization", "localBusiness", "breadcrumb", "serviceCatalog"]
+    },
+    "contact.html": {
+      "path": "/contact.html",
+      "title": "Contact XShield Pest Control Dubai | Al Quoz Office | 24/7",
+      "description": "Contact XShield pest control in Dubai. Office in Al Quoz 3. Call +971 4 410 6502, WhatsApp, email or use our contact form. Available 24/7.",
+      "ogTitle": "Contact XShield Pest Control Dubai",
+      "keywords": "pest control dubai contact, pest control al quoz, xshield phone number dubai",
+      "ogImage": "assets/logo/logo-color.webp",
+      "schemas": ["organization", "localBusiness", "breadcrumb"]
+    }
+  },
+  "faq": [
+    {
+      "question": "Are your treatments approved by Dubai Municipality?",
+      "answer": "Yes. XShield is licensed and uses municipality-approved products and methods for residential and commercial properties."
+    },
+    {
+      "question": "Do you offer free inspections?",
+      "answer": "Yes. We provide a free initial inspection and quote before any treatment begins."
+    },
+    {
+      "question": "How quickly can you respond to an emergency?",
+      "answer": "We offer 24/7 emergency service across Dubai. Call or WhatsApp and we'll dispatch a team as soon as possible."
+    },
+    {
+      "question": "Is treatment safe for children and pets?",
+      "answer": "We use approved products and advise on re-entry times. Tell us about children, pets, or sensitive areas during inspection."
+    },
+    {
+      "question": "Do you provide annual maintenance contracts?",
+      "answer": "Yes, AMC plans for homes, restaurants, and facilities with scheduled visits and priority call-outs."
+    },
+    {
+      "question": "Do you also offer cleaning services?",
+      "answer": "Yes. We provide deep cleaning, disinfection, and sofa, mattress, and carpet cleaning, often bundled after pest treatment."
+    }
+  ],
+  "breadcrumbs": {
+    "about.html": [
+      {"name": "Home", "path": "/"},
+      {"name": "About Us", "path": "/about.html"}
+    ],
+    "service.html": [
+      {"name": "Home", "path": "/"},
+      {"name": "Services", "path": "/service.html"}
+    ],
+    "contact.html": [
+      {"name": "Home", "path": "/"},
+      {"name": "Contact", "path": "/contact.html"}
+    ]
+  }
+}
