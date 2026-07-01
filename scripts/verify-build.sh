@@ -51,8 +51,14 @@ if [[ ! -s "assets/sass/style.css" ]]; then
   errors=$((errors + 1))
 fi
 
-if ! grep -q 'application/ld+json' index.html; then
-  echo "✗ index.html missing SEO schema — run ./build.sh" >&2
+check_file "index-live.html"
+
+if grep -q 'xshield-maintenance-page' index.html 2>/dev/null; then
+  echo "✓ index.html (maintenance mode)"
+elif grep -q 'application/ld+json' index.html; then
+  echo "✓ index.html (live homepage + SEO)"
+else
+  echo "✗ index.html is neither maintenance nor live homepage" >&2
   errors=$((errors + 1))
 fi
 

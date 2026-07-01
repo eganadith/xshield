@@ -309,8 +309,19 @@ def replace_json_ld(content: str, schema_html: str) -> str:
     return content.replace("</head>", schema_html + "\n</head>", 1)
 
 
+def is_maintenance_index() -> bool:
+    path = ROOT / "index.html"
+    if not path.exists():
+        return False
+    return "xshield-maintenance-page" in path.read_text(encoding="utf-8")
+
+
 def patch_core_pages(config: dict[str, Any], services: list[dict[str, Any]]) -> None:
     for filename, page in config["corePages"].items():
+        if filename == "index.html" and is_maintenance_index():
+            print("  ⊘ Skipping SEO patch on index.html (maintenance mode)")
+            continue
+
         path = ROOT / filename
         if not path.exists():
             continue
@@ -413,12 +424,13 @@ def patch_heading_semantics() -> None:
     ]
 
     targets = [
-        ROOT / "index.html",
         ROOT / "about.html",
         ROOT / "service.html",
         ROOT / "contact.html",
         *list((ROOT / "inquiry").glob("*.html")),
     ]
+    if not is_maintenance_index():
+        targets.insert(0, ROOT / "index.html")
 
     for target in targets:
         if not target.exists():
@@ -433,7 +445,7 @@ def patch_heading_semantics() -> None:
 
 
 def add_lazy_loading() -> None:
-    pages = [ROOT / f for f in CORE_PAGES]
+    pages = [ROOT / f for f in CORE_PAGES if f != "index.html" or not is_maintenance_index()]
     for path in pages:
         if not path.exists():
             continue
@@ -452,6 +464,9 @@ def add_lazy_loading() -> None:
 
 
 def ensure_dubai_areas_section() -> None:
+    if is_maintenance_index():
+        return
+
     marker = "xshield-areas"
     index_path = ROOT / "index.html"
     content = index_path.read_text(encoding="utf-8")
@@ -561,6 +576,9 @@ def fix_legacy_domain_references(config: dict[str, Any]) -> None:
 
 
 def optimize_hero_video() -> None:
+    if is_maintenance_index():
+        return
+
     index_path = ROOT / "index.html"
     content = index_path.read_text(encoding="utf-8")
     updated = content.replace('preload="auto"', 'preload="metadata"')

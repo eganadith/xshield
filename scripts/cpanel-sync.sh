@@ -32,7 +32,7 @@ require_file "$ROOT/mail-contact.php"
 
 /bin/mkdir -p "${DEPLOYPATH}inquiry" "${DEPLOYPATH}assets"
 
-PAGES=(index.html about.html service.html contact.html)
+PAGES=(index.html index-live.html about.html service.html contact.html)
 for page in "${PAGES[@]}"; do
   require_file "$ROOT/$page"
   /bin/cp "$ROOT/$page" "$DEPLOYPATH"
